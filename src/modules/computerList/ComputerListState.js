@@ -24,19 +24,23 @@ const CPULIST_LOADED = 'ComputerListState/CPULIST_LOADED';
 export function loadCPUList () {
   return dispatch => {
     dispatch(startImagesLoading());
+    let cpuList = [];
     dbh
       .collection('CPU')
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach( (doc)=> {
-            // dispatch(cpuListLoaded(stubImages));
           // doc.data() is never undefined for query doc snapshots
-          console.log('test', doc.data());
+          const item = doc.data();
+          item.name = doc.data().Model
+          cpuList.push(item);
         });
       })
       .catch( (error) => {
         console.log('Error getting documents: ', error);
       });
+    dispatch(cpuListLoaded(cpuList));
+    console.log("cpuList",cpuList);
   };
 }
 
