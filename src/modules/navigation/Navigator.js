@@ -7,7 +7,7 @@ import {
 } from '@react-navigation/drawer';
 import NavigatorView from './RootNavigation';
 
-import AvailableInFullVersion from '../../modules/availableInFullVersion/AvailableInFullVersionViewContainer';
+// import AvailableInFullVersion from '../../modules/availableInFullVersion/AvailableInFullVersionViewContainer';
 
 const iconHome = require('../../../assets/images/drawer/home.png');
 const iconCalendar = require('../../../assets/images/drawer/calendar.png');
@@ -59,8 +59,7 @@ function CustomDrawerContent(props) {
         <DrawerItem
           key={`drawer_item-${idx+1}`}
           label={() => (
-            <View
-              style={styles.menuLabelFlex}>
+            <View style={styles.menuLabelFlex}>
               <Image
                 style={{ width: 20, height: 20}}
                 source={iconHome}
